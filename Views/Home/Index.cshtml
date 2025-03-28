@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Compressor</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">PDFCompressorApp</a>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <h1>PDF Compressor</h1>
+            <p>Upload a PDF file to compress it instantly!</p>
+            <form asp-action="Compress" enctype="multipart/form-data" method="post">
+                <input type="file" name="pdfFile" accept=".pdf" />
+                <button type="submit" style="background-color: blue; color: white; padding: 5px 10px; border: none;">Compress PDF</button>
+            </form>
+
+            @if (ViewBag.Message != null)
+            {
+                <p>@ViewBag.Message</p>
+            }
+        </main>
+    </div>
+</body>
+</html>
